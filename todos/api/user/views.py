@@ -1,7 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+
+from rest_framework import viewsets
+from .serializers import TestSerializer
+from .models import Test
 # Create your views here.
 
-
-def home(request):
-    return HttpResponse("Hellooo from user")
+class TestViewSet(viewsets.ModelViewSet):
+    queryset = Test.objects.all().order_by('full_name')
+    serializer_class = TestSerializer
