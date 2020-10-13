@@ -1,9 +1,9 @@
 
 from rest_framework import viewsets
-from .serializers import TestSerializer
-from .models import Test
+from .serializers import CustomUserSerializer
+from .models import CustomUser
 # Create your views here.
 
 class TestViewSet(viewsets.ModelViewSet):
-    queryset = Test.objects.all().order_by('full_name')
-    serializer_class = TestSerializer
+    queryset = CustomUser.objects.all().order_by('fullName')
+    serializer_class = CustomUserSerializer
